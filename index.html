@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Code Genius – AI Code Generator</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-icon">⟨/⟩</div>
+    <div class="brand-name">Code Genius</div>
+    <div class="brand-sub">AI Code Generator</div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-item active" onclick="navClick(this)">Generator</div>
+    <div class="nav-item" onclick="navClick(this)">Projects</div>
+    <div class="nav-item" onclick="navClick(this)">History</div>
+    <div class="nav-item" onclick="navClick(this)">Snippets</div>
+    <div class="nav-item" onclick="navClick(this)">Settings</div>
+  </nav>
+
+  <div class="upgrade-card">
+    <div class="upgrade-title">⭐ Upgrade to Pro</div>
+    <div class="upgrade-feat">Unlimited generations</div>
+    <div class="upgrade-feat">Advanced models</div>
+    <div class="upgrade-feat">Export & Deploy</div>
+    <div class="upgrade-feat">Priority support</div>
+    <button class="upgrade-btn">Upgrade Now</button>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <span class="topbar-left">Welcome back — let's build something great.</span>
+
+    <div class="topbar-right">
+      <button class="topbar-btn">History</button>
+      <button class="topbar-btn">Theme</button>
+      <div class="avatar">U</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div class="title">Describe Your Project</div>
+      <div class="sub">
+        Describe what you want to build. The AI writes the code and explains every part.
+      </div>
+    </div>
+
+    <div class="prompt-wrap">
+      <textarea class="prompt-textarea" id="promptInput"
+      placeholder="Describe your project..."
+      oninput="onType(this)"></textarea>
+
+      <div class="prompt-bar">
+
+        <div class="prompt-bar-left">
+          <button class="icon-btn">📎</button>
+
+          <div class="examples-wrap">
+            <button class="examples-btn" onclick="toggleEx(event)">
+              Examples
+            </button>
+
+            <div class="examples-dropdown" id="exDrop">
+              <div class="ex-item" onclick="pickEx(0)">
+                SaaS Landing Page
+              </div>
+
+              <div class="ex-item" onclick="pickEx(1)">
+                Python Data Script
+              </div>
+
+              <div class="ex-item" onclick="pickEx(2)">
+                React Todo App
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-bar-right">
+
+          <span class="char-count" id="charCount">
+            0 / 2000
+          </span>
+
+          <select class="lang-select" id="langSelect">
+            <option>HTML</option>
+            <option>React</option>
+            <option>Python</option>
+            <option>JavaScript</option>
+          </select>
+
+          <button class="gen-btn" id="genBtn" onclick="generate()">
+            Generate Code
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="output-row">
+
+      <div class="code-panel">
+
+        <div class="tabs-row">
+          <div class="tab active">Code</div>
+          <div class="tab">Preview</div>
+          <div class="tab">Files</div>
+        </div>
+
+        <div class="code-body" id="codeBody">
+
+          <div class="placeholder" id="stPH">
+            <div class="ph-icon">⟨/⟩</div>
+            <div class="ph-title">
+              Your generated code will appear here
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="exp-panel">
+
+        <div class="exp-header">
+          Explanation
+        </div>
+
+        <div class="exp-body">
+          <div class="exp-placeholder">
+            Explanation will appear here.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
